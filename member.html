@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/before_engineering.css" /> -->
+    <link rel="stylesheet" href="icon/menu/iconfont.css">
+    <script src="js/jquery.js"></script>
+    <title>Member</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Moon";
+        src: url("font/MoonTypeFreeDemo-gwjr5.otf");
+    }
+
+    @font-face {
+        font-family: "Milane";
+        src: url("font/MilanelloFree-51Lwv.otf");
+    }
+
+    @font-face {
+        font-family: "Tirto";
+        src: url("font/TirtoWritterRegular-Eajrl.ttf");
+    }
+
+    @font-face {
+        font-family: 'iconfont';
+        src: url('iconfont.ttf?t=1708579574327') format('truetype');
+    }
+
+    .title {
+        color: #546ca4;
+        right: 10%;
+        position: absolute;
+        top: 38%;
+        font-size: 120px;
+        font-family: "Milane";
+        text-align: right;
+    }
+
+    .item {
+        position: relative;
+        width: 90%;
+        margin: auto;
+        background-color: azure;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item_1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .item_2 {
+        width: 15%;
+        margin: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 3px solid transparent;
+        /* justify-content: space-around; */
+        transition: 0.5s;
+    }
+
+    .item_2:hover{
+        border-bottom: 3px solid #546ca4;
+        transform: translateY(-3px);
+        box-shadow: 0 1px 10px rgba(0,0,0,0.12);
+    }
+
+    .item_1 h2 {
+        font-size: 24px;
+        font-family: "Milane";
+        font-weight: 100;
+        padding: 3px;
+        margin-bottom: -10px;
+        transition: 0.5s;
+    }
+
+    .item_2:hover h2{
+        transform: scale(1.1);
+    }
+
+    .item_1 span {
+        color: rgb(189, 188, 188);
+        padding: 3px;
+    }
+
+    .item_1 p {
+        font-size: 16px;
+        padding: 3px;
+    }
+</style>
+
+<body>
+    <div class="BOX">
+        <div class="TOP">
+            <div>
+                <p class="Level_1_heading">Project</p>
+                <a href="safety.html" class="Secondary_headings">Safety</a>
+                <a href="design.html" class="Secondary_headings">Design</a>
+                <a href="implementation.html" class="Secondary_headings">Implementation</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Wet Lab</p>
+                <a href="protocol.html" class="Secondary_headings">Protocol</a>
+                <a href="engineering.html" class="Secondary_headings">Engineering</a>
+                <a href="Parts.html" class="Secondary_headings">Parts</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Dry Lab</p>
+                <a href="hardware.html" class="Secondary_headings">Hardware</a>
+                <a href="software.html" class="Secondary_headings">Software</a>
+                <a href="Model.html" class="Secondary_headings">Model</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">HP</p>
+                <a href="intergrated HP.html" class="Secondary_headings">Intergrated HP</a>
+                <a href="education.html" class="Secondary_headings">Education</a>
+                <a href="entrepreneurship.html" class="Secondary_headings">Entrepreneurship</a>
+                <a href="overview.html" class="Secondary_headings">Overview</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Team</p>
+                <a href="member.html" class="Secondary_headings">Member</a>
+                <a href="attributions.html" class="Secondary_headings">Attributions</a>
+            </div>
+        </div>
+        <div class="top">
+            <img style="margin: 10px;margin-left: 5vw;" src="img/description/icon.png" id="iconclick">
+            <div class="caidan"></div>
+        </div>
+        <div class="banner" style="background-color: aliceblue;background-image: none;">
+            <h1 class="title">Member</h1>
+        </div>
+        <div class="item">
+            <div class="item_1">
+                <div class="item_2">
+                    <div>
+                        <h2>Yichen HE</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>Hi, I am a sophomore undergraduate student at the School of Biological Sciences at ZJU. My
+                            hobbies
+                            are
+                            petting cats and reading books!
+                        </p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Zhe SU</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>
+                            Hello，I'm Su Zhe, a medical student with a keen interest in synthetic biology, hoping to
+                            contribute
+                            to
+                            the field in my own way.
+                        </p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Chenchen HUANG</h2>
+                        <span>Wet Lab - HP</span><br>
+                    </div>
+                    <div>
+                        <p>hello everyone I am Huang Chenchen, a dreamy little girl who loves to sleep, hopes that
+                            working
+                            at hp
+                            can
+                            make a difference in the world</p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Jiawei WANG</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>Hello everyone I am Wang Jiawei. An enthusiastic fan of Super Eco，the eternal newcomer to
+                            Synthetic
+                            Biology.</p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Ruijie ZHAO</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>Hello everyone. I am Zhao Ruijie. And I have a great interest in synthetic biology, hoping to
+                            to
+                            use
+                            it
+                            to make some contributions to the medical field</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item_1">
+                <div class="item_2">
+                    <div>
+                        <h2>Zhenyu HU</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>Hello, I am Hu Zhenyu. I was new to synthetic biology, but I fell in love with the thrill of
+                            creation.
+                        </p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Hengxi ZHANG</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>
+                            Hi，I am Zhang hengxi，and I hope to use biology through my own efforts to reduce some human
+                            pain.
+                        </p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Xinyi HUANG</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>
+                            Hi, I am Huang Xinyi. I dream of traveling around the world and making contributions to
+                            human
+                            health.
+                        </p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Hongchen Fu</h2>
+                        <span>Dry Lab - Hardware</span><br>
+                    </div>
+                    <div>
+                        <p>Hello everyone, I am Fu Hongchen, an embedded hardware and programming enthusiast from ZJU. I
+                            believed
+                            that IT can be a good complement to biotechnology, so that is why I am here and why I become
+                            the
+                            hardwave designer in the team.</p>
+                    </div>
+                </div>
+                <div class="item_2">
+                    <div>
+                        <h2>Liting ZHANG</h2>
+                        <span>Wet Lab</span><br>
+                    </div>
+                    <div>
+                        <p>
+                            Hi, I am Zhang Liting, a soybean milk rice hemp potato girl. I hope that through exploration
+                            and
+                            research in the temple of synthetic biology collision of mystery！
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item_1">
+                <div class="item_2">
+                    <h2>Yiwei YANG</h2>
+                    <span>Dry Lab</span><br>
+                    <p>
+                        Hi, this is Yiwei Yang from Zhejiang University. I 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $('.caidan').click(function () {
+            $('.TOP').toggleClass('TOP-active')
+            $('.caidan').toggleClass('caidan-active')
+        })
+    })
+
+    $("#iconclick").click(function () {
+        location.href = 'index.html'
+    })
+</script>
+
+</html>

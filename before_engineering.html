@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/before_engineering.css" />
+    <link rel="stylesheet" href="icon/menu/iconfont.css">
+    <script src="js/jquery.js"></script>
+    <title>iGEM WP</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Moon";
+        src: url("font/MoonTypeFreeDemo-gwjr5.otf");
+    }
+
+    @font-face {
+        font-family: "Milane";
+        src: url("font/MilanelloFree-51Lwv.otf");
+    }
+
+    @font-face {
+        font-family: "Tirto";
+        src: url("font/TirtoWritterRegular-Eajrl.ttf");
+    }
+
+    @font-face {
+        font-family: 'iconfont';
+        src: url('iconfont.ttf?t=1708579574327') format('truetype');
+    }
+</style>
+
+<body>
+    <div class="BOX">
+        <div class="TOP">
+            <div>
+                <p class="Level_1_heading">Project</p>
+                <a href="design.html" class="Secondary_headings">Design</a>
+                <a href="safety.html" class="Secondary_headings">Safety</a>
+                <a href="implementation.html" class="Secondary_headings">Implementation</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Wet Lab</p>
+                <a href="engineering.html" class="Secondary_headings">Engineering</a>
+                <a href="construction.html" class="Secondary_headings">Construction</a>
+                <a href="protocol.html" class="Secondary_headings">Protocol</a>
+                <a href="Parts.html" class="Secondary_headings">Parts</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Dry Lab</p>
+                <a href="hardware.html" class="Secondary_headings">Hardware</a>
+                <a href="software.html" class="Secondary_headings">Software</a>
+                <a href="Model.html" class="Secondary_headings">Model</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">HP</p>
+                <a href="overview.html" class="Secondary_headings">Overview</a>
+                <a href="intergrated HP.html" class="Secondary_headings">Intergrated human practice</a>
+                <a href="education.html" class="Secondary_headings">Education</a>
+                <a href="entrepreneurship.html" class="Secondary_headings">Entrepreneurship</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Team</p>
+                <a href="member.html" class="Secondary_headings">Member</a>
+                <a href="attributions.html" class="Secondary_headings">Attributions</a>
+                <a href="contribution.html" class="Secondary_headings">Contribution</a>
+            </div>
+        </div>
+        <div class="top">
+            <img style="margin: 10px;margin-left: 5vw;" src="img/description/icon.png" id="iconclick">
+            <div class="caidan"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $('.caidan').click(function () {
+            $('.TOP').toggleClass('TOP-active')
+            $('.caidan').toggleClass('caidan-active')
+        })
+    })
+
+    $("#iconclick").click(function () {
+        location.href = 'index.html'
+    })
+</script>
+
+</html>

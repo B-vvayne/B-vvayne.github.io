@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="WP Group2" />
+  <meta name="dcterms.date" content="2024-02-23" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML" async></script>
+  <script type="text/x-mathjax-config;executed=true">
+        window.MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+                displayMath: [["$$", "$$"], ["\[", "\]"]], //段内公式选择符
+                skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX", "TeX"], //可选字体
+                showMathMenu: false //关闭右击菜单显示
+            }
+        });
+        //下面第三个参数可以不写，默认对整个html内的latex进行翻译
+        window.MathJax.Hub.Queue(["Typeset", MathJax.Hub,document.getElementsByClassName("ck-content")]);
+    </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('div1').addEventListener('click', function () {
+        document.getElementById('img1').src = document.getElementById('img1').src
+      });
+    }
+  </script>
+  <title>Panoramic Simulation: From Molecular Mechanisms to Macroscopic Ecological Dynamics</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+
+      p,
+      h2,
+      h3 {
+        orphans: 3;
+        widows: 3;
+      }
+
+      h2,
+      h3,
+      h4 {
+        page-break-after: avoid;
+      }
+    }
+
+    p {
+      margin: 1em 0;
+    }
+
+    a {
+      color: #1a1a1a;
+    }
+
+    a:visited {
+      color: #1a1a1a;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1.4em;
+    }
+
+    h5,
+    h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+
+    h6 {
+      font-weight: normal;
+    }
+
+    ol,
+    ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+
+    li>ol,
+    li>ul {
+      margin-top: 0;
+    }
+
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+
+    .sourceCode {
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+
+    table caption {
+      margin-bottom: 0.75em;
+    }
+
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+
+    #TOC li {
+      list-style: none;
+    }
+
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+
+    #TOC>ul {
+      padding-left: 0;
+    }
+
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+
+    code {
+      white-space: pre-wrap;
+    }
+
+    span.smallcaps {
+      font-variant: small-caps;
+    }
+
+    div.columns {
+      display: flex;
+      gap: min(4vw, 1.5em);
+    }
+
+    div.column {
+      flex: auto;
+      overflow-x: auto;
+    }
+
+    div.hanging-indent {
+      margin-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    ul.task-list {
+      list-style: none;
+    }
+
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+
+    .display.math {
+      display: block;
+      text-align: center;
+      margin: 0.5rem auto;
+    }
+
+    .TOP {
+      width: 100%;
+      background-color: azure;
+      position: fixed;
+      top: -30vh;
+      z-index: 2;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-bottom: 20px;
+      transition: 0.8s;
+    }
+
+    .TOP div {
+      display: flex;
+      flex-direction: column;
+      cursor: none;
+    }
+
+    .TOP a {
+      transition: 0.5s;
+    }
+
+    .TOP a:hover {
+      color: cornflowerblue;
+      transform: scale(1.1);
+    }
+
+    .TOP-active {
+      top: 8vh;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin: auto;
+      position: fixed;
+      height: 8vh;
+      z-index: 2;
+      background-color: azure;
+    }
+
+    /* .title {
+      color: #546ca4;
+      right: 10%;
+      position: absolute;
+      top: 38%;
+      font-size: 120px;
+      font-family: "Milane";
+      text-align: right;
+    } */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- <div class="TOP">
+    <div>
+      <p class="Level_1_heading">Project</p>
+      <a href="safety.html" class="Secondary_headings">Safety</a>
+      <a href="design.html" class="Secondary_headings">Design</a>
+      <a href="implementation.html" class="Secondary_headings">Implementation</a>
+    </div>
+    <div>
+      <p class="Level_1_heading">Wet Lab</p>
+      <a href="protocol.html" class="Secondary_headings">Protocol</a>
+      <a href="engineering.html" class="Secondary_headings">Engineering</a>
+      <a href="Parts.html" class="Secondary_headings">Parts</a>
+    </div>
+    <div>
+      <p class="Level_1_heading">Dry Lab</p>
+      <a href="hardware.html" class="Secondary_headings">Hardware</a>
+      <a href="software.html" class="Secondary_headings">Software</a>
+      <a href="Model.html" class="Secondary_headings">Model</a>
+    </div>
+    <div>
+      <p class="Level_1_heading">HP</p>
+      <a href="intergrated HP.html" class="Secondary_headings">Intergrated HP</a>
+      <a href="education.html" class="Secondary_headings">Education</a>
+      <a href="entrepreneurship.html" class="Secondary_headings">Entrepreneurship</a>
+      <a href="overview.html" class="Secondary_headings">Overview</a>
+    </div>
+    <div>
+      <p class="Level_1_heading">Team</p>
+      <a href="member.html" class="Secondary_headings">Member</a>
+      <a href="attributions.html" class="Secondary_headings">Attributions</a>
+      <a href="contribution.html" class="Secondary_headings">Contribution</a>
+    </div>
+  </div>
+  <div class="top">
+    <img style="margin: 10px;margin-left: 5vw;" src="img/description/icon.png" id="iconclick">
+    <div class="caidan"></div>
+  </div>
+  <div class="banner" style="background-color: aliceblue;background-image: none;">
+    <h1 class="title">Model</h1>
+  </div> -->
+  <header id="title-block-header">
+    <h1 class="title">Panoramic Simulation: From Molecular Mechanisms to
+      Macroscopic Ecological Dynamics</h1>
+    <p class="author">WP Group2</p>
+    <p class="date">2024-02-23</p>
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>This page outlines the mathematical models of our research project,
+        aimed at comprehensively understanding and predicting the behavior and
+        antibacterial effects of engineered Escherichia coli in simulated gut
+        environments, from the molecular level to community ecological dynamics,
+        through a series of model components.。</p>
+    </div>
+  </header>
+  <h1 id="model-description">Model Description</h1>
+  <p>The models implemented in this project achieve comprehensive
+    simulation from molecular mechanisms to macroscopic molecular diffusion
+    and population growth. They demonstrate the feasibility of the design
+    pathway and foreshadow the far-reaching impacts of our research.</p>
+  <p>Our project’s models consist of the following four main
+    components:</p>
+  <h2 id="gene-regulatory-networks-based-on-aip">Gene regulatory networks
+    based on AIP</h2>
+  <p>Firstly, we designed a gene regulatory network based on AIP
+    (Autoinducing Peptide) to sense the concentration of <em>Staphylococcus
+      aureus</em> in the environment and regulate the expression of
+    antimicrobial peptides (AMPs) in Escherichia coli. This network consists
+    of four main regulatory circuits: a positive feedback loop where AIP
+    activates the expression of CII and CIII proteins, a negative feedback
+    loop where CI and antisense mRNA inhibit the expression of Cro protein,
+    a self-regulating loop of CI, and a cross-regulatory loop where CII,
+    CIII, and Cro inhibit the expression of CI.</p>
+  <h2 id="the-generalized-lotka-volterra-glv-model">the Generalized
+    Lotka-Volterra (GLV) model</h2>
+  <p>In the second part, we applied the Generalized Lotka-Volterra (GLV)
+    model to describe and analyze the competition, predation, and symbiotic
+    relationships among microbial populations in the gut. This model relies
+    on experimental data to determine the relative abundance of different
+    colonies under co-cultivation and employs parameter estimation to
+    quantify the interactions between Escherichia coli and other
+    microbes.。</p>
+  <h2 id="signal-molecule-diffusion-dynamics">Signal molecule diffusion
+    dynamics</h2>
+  <p>The third part introduces the simulation of the generation,
+    diffusion, and decay processes of signaling molecules (AIP, AHL, and
+    AMP) in microbial communities. Based on Escherichia coli’s response to
+    AIP concentration thresholds, this section simulates the diffusion
+    dynamics of various molecules in complex environments to better
+    understand the behavior of microbial communities.</p>
+  <h2 id="the-application-of-the-diffusion-fisher-kolmogorov-equation-and-the-monod-equation">The
+    application of the diffusion Fisher-Kolmogorov equation and the Monod
+    equation </h2>
+  <p>Finally, we combined the diffusion Fisher-Kolmogorov equation and the
+    Monod equation to simulate the self-replication and migration processes
+    of populations, taking into account the limitations of nutrient
+    availability on bacterial growth. The Generalized Lotka-Volterra (GLV)
+    model was extended to include population growth processes, while also
+    considering the biofilm synthesis process driven by colonizing
+    bacteria.</p>
+  <h1 id="gene-regulatory-networks-based-on-aip-1">Gene regulatory
+    networks based on AIP</h1>
+  <p>In our model, we assume that all protein-protein interactions and
+    protein binding to promoters exhibit switch-like or ultrasensitive
+    characteristics. For example, the binding of a protein to a DNA binding
+    site increases the affinity for a second protein to bind at an adjacent
+    site.</p>
+  <p>We use a Hill function to describe this ultrasensitive response as
+    follows:</p>
+  <p><span class="math display">$$\text{Response} = \frac{[S]^n}{K_d^n +
+      [S]^n}$$</span></p>
+  <p>where <span class="math inline">[<em>S</em>]</span> is the
+    concentration of the stimulus (such as AIP), <span class="math inline"><em>n</em></span> is the Hill coefficient
+    representing the cooperativity of the interaction, and <span
+      class="math inline"><em>K</em><sub><em>d</em></sub></span> is the
+    dissociation constant, i.e., the [S] value at which the response reaches
+    half its maximum. When the Hill coefficient <span class="math inline"><em>n</em> &gt; 1</span>, the system exhibits
+    ultrasensitivity, meaning the response changes sharply with increasing
+    <span class="math inline">[<em>S</em>]</span>.
+  </p>
+  <p>For details on the overall circuit, refer to [here](details about the
+    overall circuit).</p>
+  <div style="display: flex;flex-direction: column;align-items: center;">
+    <img src="img/model/图片5.png" style="width: 80%;">
+    <div>Figure 1: General Gene Circuit of AMP Expression</div>
+  </div>
+  <h2 id="staphylococcus-aureus-response-parts">Staphylococcus aureus
+    Response Parts</h2>
+  <p>Based on the pathway designed in the Wet Lab, we assume that AIP
+    activates the P3 promoter, thereby promoting the expression of CII and
+    CIII proteins in the AMP synthesis regulatory network. We assume the
+    promoter has a certain baseline activity, and the translation products
+    degrade at a fixed rate. Based on the previously mentioned Hill function
+    model, the dynamics of AIP activation of the P3 promoter can be
+    represented as:</p>
+  <div style="display: flex;flex-direction: row;align-items: center;width: 100%;justify-content: space-around;">
+    <div style="display: flex;flex-direction: column;align-items: center;width: 40%;">
+      <img src="img/model/图片6.png">
+      <div>Figure 2: Regulation of the P3
+        promoter by AIP</div>
+    </div>
+    <div style="display: flex;flex-direction: column;align-items: center;width: 40%;">
+      <img src="img/model/图片7.png">
+      <div>Figure 3: Regulation of amRNA
+        by CII and CIII</div>
+    </div>
+  </div>
+  <p>AIP promotes the expression of CII: <span class="math display">$$\begin{aligned}
+      \frac{d[CII]}{dt} = &amp; \alpha_{CII} \left( \beta_{0P3} +
+      \frac{(1 - \beta_{0P3}) [AIP]^{n_{aCII}}}{K_{d_{P3CII}}^{n_{aCII}} +
+      [AIP]^{n_{aCII}}} \right) \notag \\
+      &amp; - d_{CII} [CII]
+
+      \end{aligned}$$</span></p>
+  <p>AIP promotes the expression of CIII: <span class="math display">$$\begin{aligned}
+      \frac{d[CIII]}{dt} = &amp; \alpha_{CIII} \left( \beta_{0P3} +
+      \frac{(1 - \beta_{0P3}) [AIP]^{n_{aCIII}}}{K_{d_{P3CIII}}^{n_{aCIII}} +
+      [AIP]^{n_{aCIII}}} \right) \notag \\
+      &amp; - d_{CIII} [CIII]
+
+      \end{aligned}$$</span></p>
+  <p>In our model, each parameter has the following meanings:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>α</em><sub><em>C</em><em>I</em><em>I</em></sub></span>
+        and <span class="math inline"><em>α</em><sub><em>C</em><em>I</em><em>I</em><em>I</em></sub></span>
+        represent the maximum rates of CII and CIII protein synthesis,
+        respectively.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>β</em><sub>0<em>P</em>3</sub></span> represents
+        the baseline activity of the P3 promoter in the absence of AIP.</p>
+    </li>
+    <li>
+      <p><span
+          class="math inline"><em>K</em><sub><em>d</em><sub><em>P</em>3<em>C</em><em>I</em><em>I</em></sub></sub></span>
+        and <span
+          class="math inline"><em>K</em><sub><em>d</em><sub><em>P</em>3<em>C</em><em>I</em><em>I</em><em>I</em></sub></sub></span>
+        are the dissociation constants for the activation of CII and CIII
+        expression by AIP, reflecting the concentration of AIP needed to reach
+        half-maximal expression of CII or CIII.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em></sub></span>
+        and <span class="math inline"><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em><em>I</em></sub></span>
+        are Hill coefficients describing the cooperativity of AIP in the
+        expression of CII and CIII.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>d</em><sub><em>C</em><em>I</em><em>I</em></sub></span>
+        and <span class="math inline"><em>d</em><sub><em>C</em><em>I</em><em>I</em><em>I</em></sub></span>
+        are the degradation rates of CII and CIII, respectively.</p>
+    </li>
+  </ul>
+  <p>At equilibrium, <span class="math inline">$\frac{d[CII]}{dt} =
+      0$</span> and <span class="math inline">$\frac{d[CIII]}{dt} = 0$</span>.
+    Therefore, we can solve for the equilibrium concentrations of CII and
+    CIII.</p>
+  <p>For CII：</p>
+  <p><span class="math display">$$0 = \alpha_{CII} \left( \beta_{0P3} +
+      \frac{(1 - \beta_{0P3}) [AIP]^{n_{aCII}}}{K_{d_{P3CII}}^{n_{aCII}} +
+      [AIP]^{n_{aCII}}} \right) - d_{CII} [CII]$$</span></p>
+  <p>Solving this equation gives：</p>
+  <p><span class="math display">$$[CII] = \frac{\alpha_{CII}}{d_{CII}}
+      \left( \beta_{0P3} + \frac{(1 - \beta_{0P3})
+      [AIP]^{n_{aCII}}}{K_{d_{P3CII}}^{n_{aCII}} + [AIP]^{n_{aCII}}}
+      \right)$$</span></p>
+  <p>Similarly, for CIII：</p>
+  <p><span class="math display">$$[CIII] = \frac{\alpha_{CIII}}{d_{CIII}}
+      \left( \beta_{0P3} + \frac{(1 - \beta_{0P3})
+      [AIP]^{n_{aCIII}}}{K_{d_{P3CIII}}^{n_{aCIII}} + [AIP]^{n_{aCIII}}}
+      \right)$$</span></p>
+  <div style="display: flex;flex-direction: column;align-items: center;">
+    <img src="img/model/图片1.png" style="width: 60%;">
+    <div>Figure 4: CII Concentration with different Hill Coefficient</div>
+  </div>
+  <p>As shown in the figure, the trends of CII and CIII concentrations
+    over time are clearly visible for each Hill coefficient. It can be
+    observed that with time, the concentrations of CII and CIII gradually
+    stabilize, approaching their theoretical maximum values. At extremely
+    high AIP concentrations or relatively high Hill coefficients, it can be
+    assumed that <span
+      class="math inline">[<em>A</em><em>I</em><em>P</em>]<sup><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em></sub></sup> ≫ <em>K</em><sub><em>d</em><sub><em>P</em>3<em>C</em><em>I</em><em>I</em></sub></sub><sup><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em></sub></sup></span>
+    and <span
+      class="math inline">[<em>A</em><em>I</em><em>P</em>]<sup><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em><em>I</em></sub></sup> ≫ <em>K</em><sub><em>d</em><sub><em>P</em>3<em>C</em><em>I</em><em>I</em><em>I</em></sub></sub><sup><em>n</em><sub><em>a</em><em>C</em><em>I</em><em>I</em><em>I</em></sub></sup></span>,
+    indicating that the expression of CII and CIII will approach their
+    theoretical maximum values.</p>
+  <p>The expressions for the maximum concentrations of CII and CIII can be
+    simplified as:</p>
+  <p><span class="math display">$$[CII]_{max} =
+      \frac{\alpha_{CII}}{d_{CII}}$$</span></p>
+  <p><span class="math display">$$[CIII]_{max} =
+      \frac{\alpha_{CIII}}{d_{CIII}}$$</span></p>
+  <h2 id="ci-self-regulation-parts">CI Self Regulation Parts</h2>
+  <p>The self-regulation of the CI protein is a crucial component in the
+    AMP synthesis regulatory network. CI protein can bind to its own
+    promoter region, forming a positive or negative feedback mechanism.
+    Specifically, the expression of CI inhibits the transcription of PR,
+    i.e., inhibiting the expression of cro, thereby relieving its own
+    transcriptional inhibition. This leads to rapid accumulation of CI and
+    AMP to high expression levels. However, when the concentration of CI is
+    high (i.e., when AMP reaches high concentrations), CI forms octamers and
+    promotes the formation of DNA loop structures, stabilizing the binding
+    of OL3 and OR3 sites with CI. This inhibits the transcription of the
+    upstream promoter PRM, leading to the suppression of AMP and CI
+    expression, consequently suppressing the concentration of AMP.。</p>
+  <p><span class="math display">$$\begin{aligned}
+      \frac{d[CI]}{dt} = \alpha_{PRM} \left( \beta_{0PRM} + \frac{(1
+      - \beta_{0PRM}) [CI]^{n_{aCI}}}{K_{d_{PRMCI}}^{n_{aCI}} +
+      [CI]^{n_{aCI}}} \right) \times
+      \frac{K_{iCI}^{n_{iCI}}}{K_{iCI}^{n_{iCI}} + [CI]^{n_{iCI}}} -
+      d_{CI}[CI]
+
+      \end{aligned}$$</span></p>
+  <p>The meanings of each parameter are as follows:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>α</em><sub><em>P</em><em>R</em><em>M</em></sub></span>
+        represents the maximum rate of CI protein synthesis driven by the PRM
+        promoter.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>β</em><sub>0<em>P</em><em>R</em><em>M</em></sub></span>
+        denotes the baseline activity of the PRM promoter in the absence of
+        CI.</p>
+    </li>
+    <li>
+      <p><span
+          class="math inline"><em>K</em><sub><em>d</em><sub><em>P</em><em>R</em><em>M</em><em>C</em><em>I</em></sub></sub></span>
+        is the dissociation constant for the activation of the PRM promoter by
+        CI.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>n</em><sub><em>a</em><em>C</em><em>I</em></sub></span>
+        and <span class="math inline"><em>n</em><sub><em>i</em><em>C</em><em>I</em></sub></span>
+        are Hill coefficients, representing the cooperativity of CI in
+        activating the PRM promoter at low and high concentrations,
+        respectively.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub><em>i</em><em>C</em><em>I</em></sub></span>
+        represents the factor affecting CI octamer formation and promotion of
+        DNA loop structure formation.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>d</em><sub><em>C</em><em>I</em></sub></span> is
+        the degradation rate of CI.</p>
+    </li>
+  </ul>
+  <p>We consider three different self-regulation mechanisms of the CI
+    protein: self-activation, self-inhibition, and their combination. These
+    mechanisms affect the expression level of the CI protein in different
+    ways and can be described by the following differential equations for
+    the change in CI protein concentration <span class="math inline">[<em>C</em><em>I</em>]</span> over time <span
+      class="math inline"><em>t</em></span>:</p>
+  <p><span class="math display">$$\frac{d[CI]}{dt} = \begin{cases}
+      \alpha_{\text{PRM}} \left( \beta_{0\text{PRM}} + \frac{(1 -
+      \beta_{0\text{PRM}}) [CI]^{n_{aCI}}}{K_{d_{\text{PRMCI}}}^{n_{aCI}} +
+      [CI]^{n_{aCI}}} \right)\\ - d_{CI} [CI], &amp; \text{if mechanism is
+      "activation"} \\
+      \alpha_{\text{PRM}} \beta_{0\text{PRM}}
+      \frac{K_{iCI}^{n_{iCI}}}{K_{iCI}^{n_{iCI}} + [CI]^{n_{iCI}}}\\ - d_{CI}
+      [CI], &amp; \text{if mechanism is "repression"} \\
+      \alpha_{\text{PRM}} \left( \beta_{0\text{PRM}} + \frac{(1 -
+      \beta_{0\text{PRM}}) [CI]^{n_{aCI}}}{K_{d_{\text{PRMCI}}}^{n_{aCI}} +
+      [CI]^{n_{aCI}}} \right)\\ \left(
+      \frac{K_{iCI}^{n_{iCI}}}{K_{iCI}^{n_{iCI}} + [CI]^{n_{iCI}}} \right) -
+      d_{CI} [CI], &amp; \text{if mechanism is "both"}
+      \end{cases}$$</span></p>
+  <p>The meanings of each parameter are as follows:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>α</em><sub>PRM</sub></span>
+        represents the maximum rate of CI protein synthesis driven by the PRM
+        promoter.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>β</em><sub>0PRM</sub></span>
+        denotes the baseline activity of the PRM promoter in the absence of
+        CI.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub><em>d</em><sub>PRMCI</sub></sub></span>
+        is the dissociation constant for the activation of the PRM promoter by
+        CI.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>n</em><sub><em>a</em><em>C</em><em>I</em></sub></span>
+        is the Hill coefficient describing the cooperativity of CI in activating
+        the PRM promoter.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub><em>i</em><em>C</em><em>I</em></sub></span>
+        represents the factor affecting CI octamer formation and promotion of
+        DNA loop structure formation.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>n</em><sub><em>i</em><em>C</em><em>I</em></sub></span>
+        is the Hill coefficient describing the cooperativity of CI octamer
+        formation.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>d</em><sub><em>C</em><em>I</em></sub></span> is
+        the degradation rate of CI.</p>
+    </li>
+  </ul>
+  <div style="display: flex;flex-direction: column;align-items: center;">
+    <img src="img/model/图片2.png" style="width: 60%;">
+    <div>Figure 5: CI Concentration with different regulations</div>
+  </div>
+  <p>As shown in the figure, the trends of CI concentration over time are
+    clearly visible for different Hill coefficients and regulatory
+    mechanisms. It can be seen that under different Hill coefficients, our
+    positive and negative feedback self-regulation mechanisms both
+    demonstrate good effectiveness.</p>
+  <figure>
+    <img src="Circuit 3.png" style="width:80.0%" alt="Self-regulation of CI and its regulation by CII,CIII and cro" />
+    <figcaption aria-hidden="true">Self-regulation of CI and its regulation
+      by CII,CIII and cro</figcaption>
+  </figure>
+  <figure>
+    <img src="Circuit 4.png" alt="Self-regulation of CI and its regulation by CII,CIII and cro" />
+    <figcaption aria-hidden="true">Self-regulation of CI and its regulation
+      by CII,CIII and cro</figcaption>
+  </figure>
+  <h2 id="cross-regulation-parts">cross-regulation Parts</h2>
+  <p>The cross-regulation in the AMP synthesis regulatory network involves
+    the regulation of CI expression by CII, CIII, and cro. In the absence of
+    input, the expression of cro inhibits the expression of CI and AMP,
+    reducing the level of gene leakage. Upon input, the CII protein
+    activates the expression of cro’s antisense mRNA chain via PRE,
+    relieving the inhibition on CI, while also expressing CI. CI inhibits
+    the transcription of PR (i.e., the expression of cro), relieving the
+    transcriptional inhibition of cro, allowing CI and AMP to rapidly return
+    to high levels. This complex interaction can be described by the
+    following equations:</p>
+  <p>CII and CIII promote the expression of antisense mRNA: <span class="math display">$$\begin{aligned}
+      \frac{d[\text{antisense-mRNA}]}{dt} = &amp; \alpha_{\text{PRE}}
+      \left( \beta_{0\text{PRE}} + \frac{(1 - \beta_{0\text{PRE}})
+      ([\text{CII}]^{n_{\text{amRNA}}} +
+      [\text{CIII}]^{n_{\text{amRNA}}})}{K_{d_{\text{PRE}}}^{n_{\text{amRNA}}}
+      + ([\text{CII}]^{n_{\text{amRNA}}} + [\text{CIII}]^{n_{\text{amRNA}}})}
+      \right) \notag \\
+      &amp; - d_{\text{amRNA}} [\text{antisense-mRNA}]
+
+      \end{aligned}$$</span></p>
+  <p>CI and antisense mRNA inhibited cro expression: <span class="math display">$$\begin{aligned}
+      \frac{d[\text{cro}]}{dt} = &amp; \alpha_{\text{PR}} \left(
+      \beta_{0\text{PR}} +
+      \frac{(K_{d_{\text{CI}}})^{n_{\text{CI}}}}{(K_{d_{\text{CI}}})^{n_{\text{CI}}}
+      + [\text{CI}]^{n_{\text{CI}}}} \cdot
+      \frac{(K_{d_{\text{amRNA}}})^{n_{\text{amRNA}}}}{(K_{d_{\text{amRNA}}})^{n_{\text{amRNA}}}
+      + [\text{antisense-mRNA}]^{n_{\text{amRNA}}} } \right) \notag \\
+      &amp; - d_{\text{cro}} [\text{cro}]
+
+      \end{aligned}$$</span></p>
+  <p>CII and CIII promote the expression of CI, while cro inhibits the
+    expression of CI. Additionally, CI self-promotes at low concentrations
+    and self-inhibits at high concentrations.: <span class="math display">$$\begin{aligned}
+      \frac{d[\text{CI}]}{dt} = &amp;
+      \alpha_{\text{PRE}}\left(\beta_{0\text{PRE}}+\frac{(1-\beta_{0\text{PRE}})\left([\text{CII}]^{n_{\text{CI}}}+[\text{CIII}]^{n_{\text{CI}}}\right)}{K_{d_{\text{PRE}}}^{n_{\text{CI}}}+\left([\text{CII}]^{n_{\text{CI}}}+[\text{CIII}]^{n_{\text{CI}}}\right)}\right)
+      + \\
+      &amp; \alpha_{\text{PRM}} \left( \frac{\beta_{0\text{PRM}} +
+      \frac{(1 - \beta_{0\text{PRM}})
+      [\text{CI}]^{n_{a\text{CI}}}}{K_{d_{\text{PRMCI}}}^{n_{a\text{CI}}} +
+      [\text{CI}]^{n_{a\text{CI}}}}}{1 +
+      \left(\frac{[\text{cro}]}{K_{d_{\text{cro}}}}\right)^{n_{\text{cro}}}}
+      \right) \times
+      \frac{K_{i\text{CI}}^{n_{i\text{CI}}}}{K_{i\text{CI}}^{n_{i\text{CI}}} +
+      [\text{CI}]^{n_{i\text{CI}}}} - d_{\text{CI}}[\text{CI}]
+
+      \end{aligned}$$</span></p>
+  <p>After selecting appropriate parameters and initial conditions, we use
+    the scipy.integrate.solve_ivp function to solve these differential
+    equations. Our system successfully demonstrates the expected behaviors
+    of various substances in the AMP regulatory network, as shown in the
+    figure. Cro, after a brief increase in concentration, is rapidly
+    inhibited by CI and the antisense mRNA chain. Test results with varying
+    AIP concentrations show that AIP can effectively induce an AMP response
+    once the threshold is reached, resulting in a relatively stable
+    concentration of synthesized AMP, effectively acting as a concentration
+    threshold switch.。</p>
+  <figure>
+    <img src="System Dynamics.png" alt="AMP Stable Expression with Different AIP Concentration" />
+    <figcaption aria-hidden="true">AMP Stable Expression with Different AIP
+      Concentration</figcaption>
+  </figure>
+  <figure>
+    <img src="AMP_AIP.png" alt="AMP Stable Expression with Different AIP Concentration" />
+    <figcaption aria-hidden="true">AMP Stable Expression with Different AIP
+      Concentration</figcaption>
+  </figure>
+  <h1 id="modelling-of-colony-interactions">Modelling of colony
+    interactions</h1>
+  <h2 id="experimental-data">experimental data</h2>
+  <p>In microbial communities, the GLV model is used to understand and
+    predict the dynamic interactions among different microorganisms, such as
+    competition, symbiosis, or predation relationships. Based on
+    communication with the Wet Team members, our model is built upon the
+    following experimental data obtained from co-culturing engineered
+    Escherichia coli with various species of fecal microbiota:</p>
+  <ul>
+    <li>
+      <p><strong>OD600 Measurements</strong>: Estimating the absolute
+        abundance of microorganisms by measuring the optical density (OD600) of
+        the culture broth. OD600 measurements provide data on the biomass
+        changes over time for both single populations and microbial
+        communities.</p>
+    </li>
+    <li>
+      <p><strong>16S rRNA Gene Sequencing</strong>: Analyzing the results
+        of 16S rRNA gene sequencing to obtain the relative abundance of various
+        species in the microbial community. These data provide detailed
+        information about the composition of the community.。</p>
+    </li>
+  </ul>
+  <h2 id="basic-model">Basic Model</h2>
+  <p>We performed the following parameter estimation:</p>
+  <ul>
+    <li>
+      <p><strong>Linearization</strong>: Firstly, linearize the nonlinear
+        equations of the gLV model through the following transformation: <span class="math display">$$\frac{d
+          \log(x_i)}{dt} = \mu_i + \sum_{j=1}^{n}
+          \alpha_{ij} x_j$$</span> where <span class="math inline"><em>x</em><sub><em>i</em></sub></span> is the
+        absolute abundance of the <span class="math inline"><em>i</em></span>th
+        species, <span class="math inline"><em>μ</em><sub><em>i</em></sub></span> is its
+        intrinsic growth rate, and <span class="math inline"><em>α</em><sub><em>i</em><em>j</em></sub></span> is
+        the interaction coefficient of the <span class="math inline"><em>i</em></span>th species with the <span
+          class="math inline"><em>j</em></span>th species.</p>
+    </li>
+    <li>
+      <p><strong>Least Squares Method</strong>: Employ bounded linear
+        least squares algorithms to solve for unknown parameters. Specifically,
+        estimate model parameters by minimizing the sum of squared differences
+        between experimental measurements and model predictions. <span class="math display">$$\min \sum_{k=1}^{p}
+          (\hat{y}_k - y_k)^2$$</span>
+        Where <span class="math inline"><em>p</em></span> is the number of time
+        points, <span class="math inline"><em>ŷ</em><sub><em>k</em></sub></span>
+        is the model’s predicted value at time point <span class="math inline"><em>k</em></span>, and <span
+          class="math inline"><em>y</em><sub><em>k</em></sub></span> is the
+        corresponding experimental measurement.</p>
+    </li>
+    <li>
+      <p><strong>L1 Regularization</strong>: To prevent overfitting,
+        introduce an L1 regularization term to penalize non-zero parameter
+        values: <span class="math display">$$F_{y} = \sum_{i=1}^{l}
+          \sum_{j=1}^{m} \frac{1}{p} \sum_{k=1}^{p} (\hat{y}_{k} - y_{k})^2 +
+          \lambda|\Theta|$$</span> Where <span class="math inline"><em>l</em></span> and <span
+          class="math inline"><em>m</em></span> represent the number of species in
+        the community dataset and the number of species in each community,
+        respectively. <span class="math inline"><em>λ</em></span> is the
+        regularization coefficient, and <span class="math inline"><em>Θ</em></span> is the parameter vector. Suppose
+        we have a microbial community study involving four microbes: A, B, C,
+        and D. We measure at time points <span
+          class="math inline"><em>t</em><sub>1</sub>, <em>t</em><sub>2</sub>, …, <em>t</em><sub><em>p</em></sub></span>
+        to estimate parameters of the Generalized Lotka-Volterra (GLV) model.
+        The absolute abundances of microbes A, B, C, and D are represented as
+        <span
+          class="math inline"><em>x</em><sub><em>A</em></sub>, <em>x</em><sub><em>B</em></sub>, <em>x</em><sub><em>C</em></sub>, <em>x</em><sub><em>D</em></sub></span>.
+        Next, we’ll illustrate how to construct the GLV model and perform
+        parameter estimation based on experimental data.
+      </p>
+      <h2 id="application-to-our-project">Application to Our Project</h2>
+      <p>For ease of parameter estimation, the dynamic equations of the GLV
+        model, after linearization, are as follows:</p>
+      <p><span class="math display">$$\frac{d \log(x_i)}{dt} = \mu_i +
+          \alpha_{iA} x_A + \alpha_{iB} x_B + \alpha_{iC} x_C + \alpha_{iD} x_D,
+          \quad i \in \{A, B, C, D\}$$</span></p>
+      <p>To estimate model parameters, we will use the least squares method to
+        minimize the difference between model predictions and experimental data.
+        Specifically, we seek a parameter set <span
+          class="math inline">{<em>μ</em><sub><em>i</em></sub>, <em>α</em><sub><em>i</em><em>j</em></sub>}</span>
+        that minimizes the sum of squared errors between predicted values and
+        measured values at all time points <span class="math inline"><em>t</em><sub><em>k</em></sub></span>:</p>
+      <p><span class="math display">$$\min \sum_{k=1}^{p} \sum_{i \in \{A, B,
+          C, D\}} (\hat{y}_{ik} - y_{ik})^2$$</span></p>
+      <p>Where <span class="math inline"><em>ŷ</em><sub><em>i</em><em>k</em></sub></span> is
+        the model’s predicted value for microbe <span class="math inline"><em>i</em></span> at time point <span
+          class="math inline"><em>t</em><sub><em>k</em></sub></span>, and <span
+          class="math inline"><em>y</em><sub><em>i</em><em>k</em></sub></span> is
+        the corresponding measured value.</p>
+      <p>To control model complexity and prevent overfitting, we introduce an
+        L1 regularization term:</p>
+      <p><span class="math display">$$F = \sum_{k=1}^{p} \sum_{i \in \{A, B,
+          C, D\}} (\hat{y}_{ik} - y_{ik})^2 + \lambda \sum_{i \in \{A, B, C, D\}}
+          \sum_{j \in \{A, B, C, D\}} |\alpha_{ij}|$$</span> Here, <span class="math inline"><em>λ</em></span> is the
+        regularization parameter
+        used to balance fitting errors and the complexity of the model.</p>
+      <p>Applying the above theory to our hypothetical study, the specific
+        system of equations for the GLV model is:</p>
+      <p><span class="math display">$$\begin{aligned}
+          \frac{d \log(x_A)}{dt} &amp;= \mu_A + \alpha_{AA} x_A +
+          \alpha_{AB} x_B + \alpha_{AC} x_C + \alpha_{AD} x_D, \\
+          \frac{d \log(x_B)}{dt} &amp;= \mu_B + \alpha_{BA} x_A +
+          \alpha_{BB} x_B + \alpha_{BC} x_C + \alpha_{BD} x_D, \\
+          \frac{d \log(x_C)}{dt} &amp;= \mu_C + \alpha_{CA} x_A +
+          \alpha_{CB} x_B + \alpha_{CC} x_C + \alpha_{CD} x_D, \\
+          \frac{d \log(x_D)}{dt} &amp;= \mu_D + \alpha_{DA} x_A +
+          \alpha_{DB} x_B + \alpha_{DC}
+          x_C + \alpha_{DD} x_D.
+
+          \end{aligned}$$</span></p>
+      <p>By solving this system of equations, we can estimate the growth rates
+        <span class="math inline"><em>μ</em><sub><em>i</em></sub></span> and
+        interaction coefficients <span class="math inline"><em>α</em><sub><em>i</em><em>j</em></sub></span> of
+        various microorganisms, thereby gaining deeper insights into the dynamic
+        interactions within the community.
+      </p>
+    </li>
+  </ul>
+  <h1 id="diffusion-dynamics-modelling-of-signalling-molecules">Diffusion
+    dynamics modelling of signalling molecules</h1>
+  <h2 id="general-diffusion-equation">General diffusion equation</h2>
+  <p>The diffusion process is a natural phenomenon that describes the
+    movement of substances from areas of high concentration to areas of low
+    concentration. Mathematically, this process can be described by the
+    diffusion equation, which is a type of partial differential equation
+    (PDE). For a given substance, the change in concentration <span
+      class="math inline"><em>C</em>(<em>x</em>,<em>t</em>)</span> over time
+    <span class="math inline"><em>t</em></span> and position <span class="math inline"><em>x</em></span> can be
+    represented by the
+    following equation:
+  </p>
+  <p><span class="math display">$$\frac{\partial C}{\partial t} = D
+      \nabla^2 C$$</span></p>
+  <p>Where <span class="math inline"><em>D</em></span> is the diffusion
+    coefficient, representing the rate of substance diffusion, and <span class="math inline">∇<sup>2</sup></span> is the
+    Laplacian operator, used
+    to describe the diffusion effects in space.</p>
+  <p>In this section, a series of equations are designed to describe the
+    process of the fourth strain (Escherichia coli) releasing AHL signaling
+    molecules, triggering quorum sensing-mediated suicide effects when AHL
+    concentration reaches a specific threshold, and the impact of
+    autoinducing peptide (AIP) released by Pseudomonas aeruginosa (the third
+    strain) on the secretion of antimicrobial peptides (AMP) by Escherichia
+    coli. Pseudomonas aeruginosa releases AIP through quorum sensing, while
+    Escherichia coli increases AMP secretion under the action of AIP, and
+    AMP further damages Pseudomonas aeruginosa through quorum sensing.</p>
+  <h2 id="kinetic-equations-for-the-signalling-molecule-ahl">Kinetic
+    equations for the signalling molecule AHL</h2>
+  <p>The dynamic changes of the signaling molecule AHL in the system are
+    described by the following equation： <span class="math display">$$\frac{\partial C(x, y, t)}{\partial t} = \alpha
+      \rho_{4} + D_{s} \nabla^2 C - k_{b}(\rho_{4}) C - k_{e} C$$</span></p>
+  <p>Where:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>C</em>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the concentration of the AHL signaling molecule at time <span class="math inline"><em>t</em></span>
+        and in the two-dimensional spatial
+        position <span class="math inline">(<em>x</em>,<em>y</em>)</span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>α</em></span> is the rate constant
+        for the release of AHL by a unit of Escherichia coli.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>ρ</em><sub>4</sub></span> is the
+        density of the fourth strain (Escherichia coli), which may have a
+        non-uniform distribution in the two-dimensional space.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub><em>s</em></sub></span>
+        is the diffusion constant of AHL in the medium, representing the
+        diffusion capability of the signaling molecule in two-dimensional
+        space.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>b</em></sub>(<em>ρ</em><sub>4</sub>)</span>
+        represents the biological degradation rate of AHL by Escherichia coli in
+        the two-dimensional environment.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>e</em></sub></span>
+        is the chemical degradation rate of AHL in the environment, considering
+        the influence of chemical degradation in two-dimensional space.</p>
+    </li>
+  </ul>
+  <p>Considering the dynamics of the AHL signaling molecule in a
+    two-dimensional environment allows for a more accurate simulation of the
+    signaling transmission process within the Escherichia coli community and
+    the spatial distribution of AHL concentration. This is crucial for
+    understanding and predicting behavioral patterns in microbial
+    communities and how signaling molecules regulate quorum sensing
+    mechanisms of microorganisms in complex environments.</p>
+  <h2 id="dynamics-equations-for-pseudomonas-aeruginosa-release-of-aip-and-escherichia-coli-secretion-of-amp">Dynamics
+    Equations for Pseudomonas aeruginosa Release of AIP and Escherichia coli
+    Secretion of AMP</h2>
+  <p>In this model, we further introduce the dynamics of autoinducing
+    peptide (AIP) released by Pseudomonas aeruginosa (the third strain) and
+    its impact on the secretion of antimicrobial peptides (AMP) by
+    Escherichia coli. Pseudomonas aeruginosa releases AIP through quorum
+    sensing, while Escherichia coli increases AMP secretion under the
+    influence of AIP, and AMP further damages Pseudomonas aeruginosa through
+    quorum sensing. The following equations detail this process.<br />
+    The figure below visualizes the density of Staphylococcus aureus and the
+    concentrations of AIP and AMP after a period of time in our
+    simulation.</p>
+  <figure>
+    <img src="signaldiffuse.png" style="width:80.0%" alt="Bacteria Type C, AIP, and AMP Density in the model" />
+    <figcaption aria-hidden="true">Bacteria Type C, AIP, and AMP Density in
+      the model</figcaption>
+  </figure>
+  <h3 id="dynamics-equation-for-aip">Dynamics Equation for AIP</h3>
+  <p>The dynamics of AIP released by Pseudomonas aeruginosa can be
+    described by the following equation: <span class="math display">$$\frac{\partial A}{\partial t} = \beta \rho_{3} +
+      D_{A} \left( \frac{\partial^{2} A}{\partial x^{2}} + \frac{\partial^{2}
+      A}{\partial y^{2}} \right) - k_{a}(\rho_{4}) A - k_{A} A$$</span>
+    Where：</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>A</em>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the concentration of AIP at the two-dimensional spatial
+        location <span class="math inline">(<em>x</em>,<em>y</em>)</span> at
+        time <span class="math inline"><em>t</em></span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>β</em></span> is the rate constant
+        for the release of AIP by a unit of Pseudomonas aeruginosa.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>ρ</em><sub>3</sub></span> and <span
+          class="math inline"><em>ρ</em><sub>4</sub></span> are the densities of
+        Pseudomonas aeruginosa and Escherichia coli, respectively.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>a</em></sub></span>
+        is the degradation rate of AIP by Escherichia coli.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub><em>A</em></sub></span>
+        is the diffusion coefficient of AIP in the medium.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>A</em></sub></span>
+        is the degradation rate of AIP in the environment.</p>
+    </li>
+  </ul>
+  <figure>
+    <img src="AIP diffuse.png" style="width:80.0%" alt="Corresponding Normalized Density between C and AIP" />
+    <figcaption aria-hidden="true">Corresponding Normalized Density between
+      C and AIP</figcaption>
+  </figure>
+  <p>As shown in the figure, we sorted all data points of Pseudomonas
+    aeruginosa after a period of simulation by density from high to low, and
+    normalized the corresponding AIP concentrations of these points. The
+    scatter plot illustrates the correlation between the two, and the arrows
+    in the figure indicate the trend of AIP concentration diffusion.</p>
+  <h3 id="amps-dynamical-equation">AMP’s Dynamical Equation</h3>
+  <p>According to the modeling results in the first part, the secretion
+    rate of AMP by Escherichia coli is determined by the concentration of
+    AIP. We assume that this relationship follows a switch function, where
+    the secretion rate of AMP jumps to its maximum value when the AIP
+    concentration reaches or exceeds a certain threshold, otherwise, the
+    secretion rate of AMP remains zero. This can be simulated by the
+    following equation describing the bactericidal effect of AMP on
+    Pseudomonas aeruginosa: <span class="math display">$$\frac{\partial
+      M}{\partial t} = f(A) \cdot \rho_{4} + D_{M} \left( \frac{\partial^{2}
+      M}{\partial x^{2}} + \frac{\partial^{2} M}{\partial y^{2}} \right) -
+      k_{m} \cdot \rho_{3} \cdot M - k_{M} \cdot M$$</span> Where the
+    secretion rate function <span class="math inline"><em>f</em>(<em>A</em>)</span> is defined as： <span
+      class="math display">$$f(A) =
+      \begin{cases}
+      0 &amp; \text{if } A &lt; A_{\text{threshold}} \\
+      R_{\text{max}} &amp; \text{if } A \geq A_{\text{threshold}}
+      \end{cases}$$</span> Where：</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>M</em>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the concentration of AMP at time <span class="math inline"><em>t</em></span> and two-dimensional
+        spatial
+        position <span class="math inline">(<em>x</em>,<em>y</em>)</span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>A</em></span> denotes the
+        concentration of AIP.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>A</em><sub>threshold</sub></span>
+        is the threshold AIP concentration triggering AMP secretion.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>R</em><sub>max</sub></span> is the
+        maximum secretion rate of AMP.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>ρ</em><sub>3</sub></span> and <span
+          class="math inline"><em>ρ</em><sub>4</sub></span> represent the
+        densities of Pseudomonas aeruginosa and Escherichia coli,
+        respectively.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>m</em></sub></span>
+        is the degradation rate of AMP by Pseudomonas aeruginosa.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub><em>M</em></sub></span>
+        is the diffusion constant of AMP in the medium.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>k</em><sub><em>M</em></sub></span>
+        is the natural degradation rate of AMP in the environment.</p>
+    </li>
+  </ul>
+  <figure>
+    <img src="AMP diffuse.png" style="width:80.0%" alt="Corresponding Normalized Density between C and AMP" />
+    <figcaption aria-hidden="true">Corresponding Normalized Density between
+      C and AMP</figcaption>
+  </figure>
+  <p>Similar to AIP, we also sorted all data points of Pseudomonas
+    aeruginosa after a period of simulation from high to low density and
+    plotted the corresponding AMP concentrations as scatter points on the
+    graph. Similarly, the correlation between the two and the trend of AMP
+    concentration diffusion can be observed. This result indicates that our
+    system functions well in response to Pseudomonas aeruginosa, as the
+    concentration of Escherichia coli is not correlated with that of
+    Pseudomonas aeruginosa, whereas the secreted AMP products exhibit a high
+    correlation.</p>
+  <h1 id="modelling-of-bacterial-growth-and-colonisation">Modelling of
+    bacterial growth and colonisation</h1>
+  <h2 id="extension-of-the-glv-model">Extension of the GLV Model</h2>
+  <p>The classical Generalized Lotka-Volterra (GLV) model has been
+    extended to account for spatial effects and environmental heterogeneity.
+    This extension allows the model to not only describe interactions within
+    populations, such as competition, predation, and symbiosis, but also
+    consider the diffusion behavior of individuals in space. The extended
+    GLV model can be represented as:</p>
+  <p><span class="math display">$$\frac{\partial \rho_i}{\partial t} = D_i
+      \nabla^2 \rho_i + \rho_i \left( r_i + \sum_{j=1}^{n} \alpha_{ij} \rho_j
+      \right)$$</span></p>
+  <p>Where:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>ρ</em><sub><em>i</em></sub>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the density of the <span class="math inline"><em>i</em></span>th bacteria species at time <span
+          class="math inline"><em>t</em></span> and spatial position <span
+          class="math inline">(<em>x</em>,<em>y</em>)</span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub><em>i</em></sub></span>
+        is the diffusion coefficient of the <span class="math inline"><em>i</em></span>th bacteria species, representing
+        its ability to diffuse in space.</p>
+    </li>
+    <li>
+      <p><span class="math inline">∇<sup>2</sup></span> is the Laplace
+        operator, used to describe the spatial distribution of bacterial
+        density.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>r</em><sub><em>i</em></sub></span>
+        is the intrinsic growth rate of the <span class="math inline"><em>i</em></span>th bacteria species.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>α</em><sub><em>i</em><em>j</em></sub></span> is
+        the coefficient describing the interaction between the <span class="math inline"><em>i</em></span>th and <span
+          class="math inline"><em>j</em></span>th bacteria species, with positive
+        values indicating symbiosis and negative values indicating competition
+        or predation.</p>
+    </li>
+  </ul>
+  <p>In this model, the growth rate of each bacteria species is influenced
+    not only by its intrinsic biological characteristics but also by
+    interactions with other bacterial populations. Additionally, the spatial
+    diffusion capability of bacteria allows them to move and expand in the
+    environment, which is crucial for understanding and predicting the
+    spatial structure and dynamic changes of microbial communities.。</p>
+  <figure>
+    <img src="density1.png" style="width:80.0%" alt="Corresponding Normalized Density between D and B" />
+    <figcaption aria-hidden="true">Corresponding Normalized Density between
+      D and B</figcaption>
+  </figure>
+  <figure>
+    <img src="density2.png" alt="Corresponding Normalized Density between D and B" />
+    <figcaption aria-hidden="true">Corresponding Normalized Density between
+      D and B</figcaption>
+  </figure>
+  <p>As shown in the figure, we assume a symbiotic relationship between
+    bacteria of type A and type D (engineered Escherichia coli), while type
+    B and type D exhibit an antagonistic relationship. We sorted all data
+    points of bacteria types A and B by density from high to low after
+    simulating for a period of time, and plotted the corresponding points of
+    bacteria type D as well. The figure clearly shows the correlation
+    between them, indicating that bacteria type D tends to grow in areas
+    where bacteria type A is present but bacteria type B is absent.</p>
+  <h2 id="carrying-capacity-and-nutrient-limitation">Carrying Capacity and
+    Nutrient Limitation</h2>
+  <p>Significant extensions have been made to the Generalized
+    Lotka-Volterra (GLV) model to account for environmental carrying
+    capacity and nutrient limitation. These extensions consider two key
+    ecological mechanisms of bacterial population growth: logistic growth
+    rate due to environmental carrying capacity and Monod equation under
+    nutrient limitation.</p>
+  <p>Environmental carrying capacity refers to the maximum stable size of
+    a biological population that the environment can sustain. Beyond this
+    size, environmental resources are insufficient to support the survival
+    of additional individuals, leading to a decrease in population growth
+    rate. This effect is described in the logistic growth model, which is
+    represented by the following equation:</p>
+  <p><span class="math display">$$\frac{dN}{dt} = rN\left(1 -
+      \frac{N}{K}\right)$$</span></p>
+  <p>Where <span class="math inline"><em>N</em></span> is the population
+    size, <span class="math inline"><em>r</em></span> is the maximum growth
+    rate, and <span class="math inline"><em>K</em></span> is the carrying
+    capacity. As <span class="math inline"><em>N</em></span> approaches
+    <span class="math inline"><em>K</em></span>, the growth rate decreases,
+    simulating the slowdown in population growth due to resource
+    limitation.
+  </p>
+  <p>Nutrient limitation dynamics can be described by the Monod equation,
+    a core concept in microbial growth models used to depict the
+    relationship between microbial growth rate and nutrient
+    concentration:</p>
+  <p><span class="math display">$$\mu = \mu_{\max}\frac{[S]}{K_s +
+      [S]}$$</span></p>
+  <p>Where <span class="math inline"><em>μ</em></span> is the growth rate,
+    <span class="math inline"><em>μ</em><sub>max</sub></span> is the maximum
+    growth rate, <span class="math inline">[<em>S</em>]</span> is the
+    nutrient concentration, and <span class="math inline"><em>K</em><sub><em>s</em></sub></span> is the
+    half-saturation constant, representing the nutrient concentration at
+    which the growth rate is <span class="math inline"><em>μ</em><sub>max</sub>/2</span>.
+  </p>
+  <p>By integrating these two concepts, the GLV model can be extended to a
+    complete equation that considers spatial distribution, environmental
+    carrying capacity, and nutrient limitation.</p>
+  <p><span class="math display">$$\frac{\partial \rho_i}{\partial t} = D_i
+      \nabla^2 \rho_i + \rho_i \mu_i \left(\frac{[S]}{K_s + [S]}\right)\left(1
+      - \frac{\rho_i}{K_i}\right) + \sum_{j=1}^{n} \alpha_{ij}
+      \rho_j$$</span></p>
+  <p><span class="math display">$$\frac{\partial [S]}{\partial t} = D_s
+      \nabla^2 [S] - \sum_{i=1}^{n} \eta_i \rho_i \frac{[S]}{K_s +
+      [S]}$$</span></p>
+  <p>Here, <span class="math inline"><em>ρ</em><sub><em>i</em></sub>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+    and <span class="math inline">[<em>S</em>](<em>x</em>,<em>y</em>,<em>t</em>)</span>
+    respectively represent the density of the <span class="math inline"><em>i</em></span>th bacteria species and the
+    concentration of nutrient at time <span class="math inline"><em>t</em></span> and spatial location <span
+      class="math inline">(<em>x</em>,<em>y</em>)</span>. <span
+      class="math inline"><em>D</em><sub><em>i</em></sub></span> and <span
+      class="math inline"><em>D</em><sub><em>s</em></sub></span> are the
+    diffusion coefficients of bacteria and nutrient, while <span
+      class="math inline"><em>η</em><sub><em>i</em></sub></span> is the
+    conversion rate of nutrient consumed by the <span class="math inline"><em>i</em></span>th bacteria species.</p>
+  <p>In this way, the extended GLV model not only simulates interactions
+    within populations and spatial diffusion behavior but also accurately
+    describes how nutrients affect the growth and distribution of microbial
+    communities, providing powerful theoretical tools for our project
+    implementation.</p>
+  <h2 id="introduction-of-engineered-escherichia-coli-colonization-process">Introduction
+    of Engineered Escherichia coli Colonization Process</h2>
+  <p>In microbial engineering, distinguishing between free-living and
+    colonized bacteria is crucial for understanding and optimizing the
+    spatial structure and functionality of microbial communities.
+    Free-living bacteria (<span class="math inline"><em>ρ</em><sub><em>f</em></sub></span>) refer to
+    bacteria that are not fixed to specific surfaces or interfaces, while
+    colonized bacteria (<span class="math inline"><em>ρ</em><sub><em>s</em></sub></span>) are bacteria
+    that have formed stable colonies on biological or non-biological
+    surfaces. The following equations describe the dynamic changes of these
+    two states of bacteria in the environment, particularly considering the
+    adhesion process of free-living bacteria transitioning to colonized
+    bacteria.</p>
+  <h3 id="free-living-bacteria-density-equation">Free-living Bacteria
+    Density Equation</h3>
+  <p>The dynamic changes of free-living bacteria can be described by the
+    following equation: <span class="math display">$$\frac{\partial
+      \rho_{f}}{\partial t} = D_f \nabla^2 \rho_{f} + \rho_{f} \left( \mu_f
+      \left(\frac{n}{n + K_s}\right) \left(1 - \frac{\rho_{f} +
+      \rho_{s}}{K}\right) + \sum_{j=1}^{3} \alpha_{fj} \rho_j \right) - a
+      \rho_{f}$$</span> Where <span class="math inline"><em>D</em><sub><em>f</em></sub></span> represents
+    the diffusion coefficient of free-living bacteria, <span class="math inline"><em>μ</em><sub><em>f</em></sub></span>
+    is the
+    intrinsic growth rate of free-living bacteria, <span class="math inline"><em>n</em></span> is the concentration of
+    nutrient,
+    <span class="math inline"><em>K</em><sub><em>s</em></sub></span> is the
+    half-saturation constant, <span class="math inline"><em>K</em></span> is
+    the environmental carrying capacity, <span class="math inline"><em>α</em><sub><em>f</em><em>j</em></sub></span> is
+    the coefficient of interaction between free-living bacteria and other
+    colonies, and <span class="math inline"><em>a</em></span> is the
+    conversion rate of free-living bacteria adhering to become colonized
+    bacteria.
+  </p>
+  <h3 id="colonized-bacteria-density-equation">Colonized Bacteria Density
+    Equation</h3>
+  <p>The dynamic changes of colonized bacteria can be described by the
+    following equation: <span class="math display">$$\frac{\partial
+      \rho_{s}}{\partial t} = \rho_{s} \left( \mu_s \left(\frac{n}{n +
+      K_s}\right) \left(1 - \frac{\rho_{f} + \rho_{s}}{K}\right) +
+      \sum_{j=1}^{3} \alpha_{sj} \rho_j \right) + a \rho_{f}$$</span> Here,
+    <span class="math inline"><em>μ</em><sub><em>s</em></sub></span>
+    represents the intrinsic growth rate of colonized bacteria, and <span
+      class="math inline"><em>α</em><sub><em>s</em><em>j</em></sub></span> is
+    the coefficient of interaction between colonized bacteria and other
+    microbial populations. This equation not only reflects the increase of
+    colonized bacteria through their own growth and interaction but also
+    acquires new individuals through the adhesion process of free
+    bacteria.
+  </p>
+  <h3 id="extracellular-polysaccharide-concentration-equation">Extracellular
+    Polysaccharide Concentration Equation</h3>
+  <p>During the formation of biofilms, the accumulation of extracellular
+    polysaccharides (<span class="math inline"><em>s</em></span>) is one of
+    the key steps and can be described by the following equation: <span class="math display">$$\frac{\partial
+      s}{\partial t} = D_s \nabla^2 s +
+      p \rho_{s} - d s$$</span> Here, <span class="math inline"><em>D</em><sub><em>s</em></sub></span> is the
+    diffusion coefficient of extracellular polysaccharides, <span class="math inline"><em>p</em></span> is the rate at
+    which colonized
+    bacteria produce extracellular polysaccharides, and <span class="math inline"><em>d</em></span> is the degradation
+    rate of
+    extracellular polysaccharides.</p>
+  <h2 id="nutrient-diffusion-dynamics-considering-the-influence-of-biofilms">Nutrient
+    Diffusion Dynamics Considering the Influence of Biofilms</h2>
+  <p>The formation and accumulation of biofilms have a significant impact
+    on the diffusion process of nutrients. In biofilms, nutrient diffusion
+    is no longer a simple free diffusion process but is influenced by the
+    complex structure of the biofilm. Factors such as the porous structure,
+    viscosity, and composition of the biofilm can affect the rate of
+    nutrient diffusion. Therefore, to more accurately simulate the dynamic
+    changes of nutrients in the biofilm environment, we need to modify the
+    diffusion dynamics equation of nutrients accordingly.<br />
+    The diffusion of nutrients in biofilms can be considered as a diffusion
+    process in a heterogeneous medium. In this environment, the effective
+    diffusion coefficient of nutrients is typically lower than that in free
+    solution because the physical structure of the biofilm impedes the
+    movement of nutrients. Additionally, the microenvironment within the
+    biofilm may further promote or inhibit the consumption of specific
+    nutrients, thereby affecting the distribution and concentration gradient
+    of nutrients.</p>
+  <h3 id="modification-of-nutrient-diffusion-dynamics-equation">Modification
+    of Nutrient Diffusion Dynamics Equation</h3>
+  <p>Considering the influence of biofilm on nutrient diffusion, we can
+    modify the diffusion dynamics equation for nutrients as follows: <span class="math display">$$\frac{\partial
+      n}{\partial t} = \nabla \cdot
+      (D_n(s) \nabla n) - \sum_{i=1}^{n} \eta_i \rho_i \frac{n}{K_s + n} +
+      r$$</span> Where,</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>n</em>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the concentration of nutrients.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub><em>n</em></sub>(<em>s</em>)</span>
+        is the effective diffusion coefficient of nutrients in the biofilm,
+        which is a function of the concentration of extracellular polymeric
+        substances <span class="math inline"><em>s</em></span>, reflecting the
+        influence of the biofilm on nutrient diffusion.</p>
+    </li>
+    <li>
+      <p><span class="math inline">∇ ⋅ (<em>D</em><sub><em>n</em></sub>(<em>s</em>)∇<em>n</em>)</span>
+        represents the diffusion term of nutrients considering the influence of
+        the biofilm.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>η</em><sub><em>i</em></sub></span>
+        is the conversion rate of nutrient consumption by the <span class="math inline"><em>i</em></span>th type of
+        bacteria.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub><em>s</em></sub></span>
+        is the half-saturation constant, indicating the concentration of
+        nutrients at which the consumption rate reaches half of its maximum
+        value.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>r</em></span> represents the rate
+        of nutrient production or input.</p>
+    </li>
+  </ul>
+  <h2 id="influence-of-extracellular-polymeric-substance-concentration-on-diffusion-coefficients">Influence
+    of Extracellular Polymeric Substance Concentration on Diffusion
+    Coefficients</h2>
+  <p>The influence of extracellular polymeric substance concentration
+    <span class="math inline"><em>s</em></span> on the effective diffusion
+    coefficient <span class="math inline"><em>D</em><sub><em>n</em></sub>(<em>s</em>)</span>
+    of nutrients needs to be validated through wet experiments. Typically,
+    as the concentration of extracellular polymeric substances in the
+    biofilm increases, the effective diffusion coefficient decreases. We
+    make the assumption here: <span
+      class="math display"><em>D</em><sub><em>n</em></sub>(<em>s</em>) = <em>D</em><sub><em>n</em>0</sub>exp (−<em>α</em><em>s</em>)</span>
+    Where <span class="math inline"><em>D</em><sub><em>n</em>0</sub></span>
+    is the free diffusion coefficient of nutrients under no biofilm
+    conditions, and <span class="math inline"><em>α</em></span> is a
+    positive constant describing the extent to which extracellular polymeric
+    substance concentration affects the diffusion coefficient.
+  </p>
+  <p>In this way, we can more accurately simulate the distribution and
+    dynamic changes of nutrients during the formation and development of
+    biofilms, providing a theoretical basis for understanding and
+    controlling biofilm-related processes.</p>
+  <p>The figure below shows the simulation of the change in nutrient
+    concentration over time, considering both the growth of the biofilm and
+    the consumption by bacterial colonies.<br />
+  <div style="display: flex;flex-direction: column;width: 100%;align-items: center;">
+    <img id="img1" src="img/model/GIF2.gif" style="width: 50%;"></img>
+    <div>Nutrient Concentrations</div>
+  </div>
+
+
+  <h1 id="overall-model-implementation-and-testing">Overall model
+    implementation and testing</h1>
+  <h2 id="incorporating-molecular-diffusion-dynamics-into-bacterial-growth">Incorporating
+    Molecular Diffusion Dynamics into Bacterial Growth</h2>
+  <p>Based on our previous discussions, we need to consider the molecular
+    dynamics of AIP, AMP, AHL, and other molecules on bacterial growth and
+    diffusion.</p>
+  <h3 id="suicidal-effect-triggered-by-ahl-concentration-threshold">Suicidal
+    Effect Triggered by AHL Concentration Threshold</h3>
+  <p>To describe the suicidal effect triggered when the AHL concentration
+    reaches a specific threshold, we introduce a switch function <span class="math inline"><em>S</em>(<em>C</em>)</span>
+    to represent the
+    activation condition for the suicidal effect: <span class="math display">$$S(C) =
+      \begin{cases}
+      0 &amp; \text{If } C &lt; C_{\text{threshold}} \\
+      1 &amp; \text{If } C \geq C_{\text{threshold}}
+      \end{cases}$$</span> Here, <span class="math inline"><em>C</em><sub>threshold</sub></span> is the AHL
+    concentration threshold required to trigger the suicidal effect. When
+    the AHL concentration reaches or exceeds this threshold, Escherichia
+    coli initiates the suicidal program.</p>
+  <p>To reflect the influence of the suicidal effect on Escherichia coli
+    density, the Escherichia coli density equation adds terms related to
+    <span class="math inline"><em>S</em>(<em>C</em>)</span>: <span class="math display">$$\frac{\partial
+      \rho_4}{\partial t} = D_4 \nabla^2
+      \rho_4 + \rho_4 \left( \mu_4 \left(\frac{n}{n + K_s}\right) \left(1 -
+      \frac{\rho_4}{K_4}\right) + \sum_{j=1}^{3} \alpha_{4j} \rho_j \right) -
+      a(\rho_4, s) \rho_4 + m(\rho_4, s) - \delta S(C) \rho_4$$</span>
+    Where，<span class="math inline"><em>δ</em></span> describes the
+    intensity of the suicidal effect.
+  </p>
+  <h3 id="density-variation-equation-of-staphylococcus-aureus-considering-amp-killing-effect">Density
+    Variation Equation of Staphylococcus aureus Considering AMP Killing
+    Effect</h3>
+  <p>To reflect the killing effect of antimicrobial peptides (AMP) on
+    Staphylococcus aureus (the third bacterial strain), we update the
+    density variation equation for Staphylococcus aureus to incorporate the
+    effect of AMP. The killing effect of AMP is represented by a degradation
+    term proportional to the AMP concentration <span class="math inline"><em>M</em></span>, which directly affects the
+    survival rate and density variation of Staphylococcus aureus:</p>
+  <p><span class="math display">$$\frac{\partial \rho_{3}}{\partial t} =
+      D_{3} \nabla^2 \rho_{3} + \rho_{3} \left( \mu_{3} \left(\frac{n}{n +
+      K_{s3}}\right) \left(1 - \frac{\rho_{3}}{K_{3}}\right) + \sum_{j \neq 3}
+      \alpha_{3j} \rho_{j} \right) - \gamma(M) \rho_{3}$$</span></p>
+  <p>Where:</p>
+  <ul>
+    <li>
+      <p><span class="math inline"><em>ρ</em><sub>3</sub>(<em>x</em>,<em>y</em>,<em>t</em>)</span>
+        represents the density of Staphylococcus aureus at time <span class="math inline"><em>t</em></span> and
+        two-dimensional spatial
+        position <span class="math inline">(<em>x</em>,<em>y</em>)</span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>D</em><sub>3</sub></span> is the
+        diffusion coefficient of Staphylococcus aureus in the medium, indicating
+        the ability of Staphylococcus aureus to move in two-dimensional
+        space.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>μ</em><sub>3</sub></span> is the
+        maximum intrinsic growth rate of Staphylococcus aureus under conditions
+        of sufficient nutrients.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub>3</sub></span> is the
+        environmental carrying capacity of Staphylococcus aureus.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>K</em><sub><em>s</em>3</sub></span>
+        is the half-saturation constant of Staphylococcus aureus growth response
+        to nutrients.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>α</em><sub>3<em>j</em></sub></span>
+        represents the interaction coefficient between Staphylococcus aureus and
+        other bacterial strains <span class="math inline"><em>j</em></span>.</p>
+    </li>
+    <li>
+      <p><span class="math inline"><em>γ</em>(<em>M</em>)</span> is a
+        function describing the killing effect of AMP concentration <span class="math inline"><em>M</em></span> on
+        Staphylococcus aureus,
+        reflecting that a higher AMP concentration results in a stronger killing
+        effect on Staphylococcus aureus.</p>
+    </li>
+  </ul>
+  <p>As shown in the figure, we statistically count the total numbers of
+    various bacteria in the simulation, where Bacteria Type 3 represents
+    Staphylococcus aureus, and Bacteria Type 4 and 5 are free and settled
+    Escherichia coli, respectively. It can be seen that our engineered
+    bacteria have a significant inhibitory effect.</p>
+  <figure>
+    <img src="AMPeffect.png" style="width:80.0%"
+      alt="Modelled changes in the total amount of various bacteria over time" />
+    <figcaption aria-hidden="true">Modelled changes in the total amount of
+      various bacteria over time</figcaption>
+  </figure>
+  <p>
+  <div style="display: flex;flex-direction: column;width: 100%;align-items: center;">
+    <img id="img1" src="img/model/GIF3.gif" style="width: 70%;"></img>
+    <div>Bacteria C and AIP simulations with Threshold
+      Contour Line</div>
+  </div>
+  <br>As shown in the figure, the region responsive to AMP quickly covers the
+  colony range of Staphylococcus aureus, demonstrating a good
+  antibacterial effect. By introducing the term <span class="math inline"><em>γ</em>(<em>M</em>)</span>, this equation
+  not
+  only considers the growth, diffusion, and nutrient demand of
+  Staphylococcus aureus itself but also reflects the impact of external
+  factors (such as AMP) on its density variation, which is the
+  antibacterial effect we aim to achieve in our project. Such a model
+  extension allows us to more accurately simulate and predict the dynamic
+  behavior of Staphylococcus aureus communities in the presence of
+  engineered bacteria and AMP, providing an important theoretical basis
+  for studying microbial interactions and engineering antibacterial
+  effects.</p>
+  <h2 id="implementation-and-testing-of-the-code">Implementation and
+    Testing of the Code</h2>
+  <p>In this study, we implemented a complex dynamic simulation model of
+    microbial communities aimed at exploring the interactions between
+    different bacterial species, particularly the colonization process of
+    engineered Escherichia coli and its symbiotic and antagonistic
+    relationships with other bacterial populations. The model implementation
+    is based on the Python programming language and utilizes numerical
+    methods to solve a series of partial differential equations to simulate
+    bacterial spatial diffusion, growth kinetics, and interactions.</p>
+  <p>The dynamic changes of bacterial populations in the model are
+    described using an extended Generalized Lotka-Volterra (GLV) model,
+    which includes both the freely moving state (<span class="math inline"><em>ρ</em><sub><em>f</em></sub></span>) and
+    the
+    settled state (<span class="math inline"><em>ρ</em><sub><em>s</em></sub></span>) of bacteria,
+    as well as the transition process between them. Additionally, the
+    consumption of nutrients and the production, diffusion, and degradation
+    of signaling molecules (such as AHL, AIP, and AMP) are considered, which
+    collectively influence the growth and interactions of bacterial
+    populations.</p>
+  <p>The key implementation steps of the model include:<br />
+    1. Using the <span
+      class="math inline"><em>g</em><em>e</em><em>n</em><em>e</em><em>r</em><em>a</em><em>t</em><em>e</em>_<em>c</em><em>o</em><em>l</em><em>o</em><em>n</em><em>y</em>_<em>d</em><em>e</em><em>n</em><em>s</em><em>i</em><em>t</em><em>y</em>_<em>f</em><em>i</em><em>x</em><em>e</em><em>d</em>_<em>m</em><em>a</em><em>x</em></span>
+    function to randomly generate the initial distribution of bacterial
+    population density according to a two-dimensional normal distribution
+    based on the given center position, radius, and maximum density.<br />
+    2. Initializing a spatial grid to simulate the distribution of bacterial
+    populations and nutrients in two-dimensional space.<br />
+    3. Defining parameters such as diffusion coefficients, growth rates,
+    interaction coefficients of bacterial populations, and nutrients, which
+    directly affect the dynamic behavior of the model.<br />
+    4. Using the <span
+      class="math inline"><em>u</em><em>p</em><em>d</em><em>a</em><em>t</em><em>e</em>_<em>s</em><em>t</em><em>a</em><em>t</em><em>e</em><em>s</em></span>
+    function to update bacterial density and nutrient concentration at each
+    time step, including calculating bacterial diffusion, growth, and
+    interactions, as well as the dynamic changes of signaling
+    molecules.<br />
+    5. Visualizing the dynamic behavior of the model using visualization
+    tools, including the spatial distribution of different bacterial species
+    and changes in nutrient concentration.</p>
+  <p>Model testing shows that through numerical simulation, we can observe
+    symbiotic relationships between the first bacterial species and the
+    fourth bacterial species (Escherichia coli), as well as antagonistic
+    relationships between the second bacterial species and Escherichia coli.
+    Meanwhile, the model successfully simulates the behavior of settled
+    Escherichia coli (the fifth bacterial species), with interaction
+    parameters consistent with those of free Escherichia coli. Furthermore,
+    the model also considers the influence of biofilm formation on nutrient
+    diffusion, further increasing the biological significance and practical
+    value of the model.</p>
+  <p>Through this implementation, we not only validate the theoretical
+    foundation of the model but also provide a powerful tool for further
+    research on the spatial dynamics of microbial communities, especially in
+    exploring microbial interactions and biofilm formation processes.</p>
+  <p>Below are our simulation results:<br />
+  <div style="display: flex;flex-direction: column;width: 100%;align-items: center;">
+    <img id="img1" src="img/model/GIF1.gif" style="width: 90%;"></img>
+    <div>Overall model simulations</div>
+  </div>
+  We assume that the rapid floating rate of free Escherichia coli allows
+  it to settle in different positions of the intestine. Soon, Escherichia
+  coli becomes concentrated around the symbiotic bacteria (Bacteria A),
+  while the number of Escherichia coli around the antagonistic bacteria
+  (Bacteria B) is relatively low. Subsequently, the production of AMP in
+  response to AIP effectively exhibits antibacterial effects.
+  </p>
+</body>
+
+</html>

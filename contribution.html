@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="icon/menu/iconfont.css">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <title>iGEM WP</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Moon";
+        src: url("font/MoonTypeFreeDemo-gwjr5.otf");
+    }
+
+    @font-face {
+        font-family: "Milane";
+        src: url("font/MilanelloFree-51Lwv.otf");
+    }
+
+    @font-face {
+        font-family: "Tirto";
+        src: url("font/TirtoWritterRegular-Eajrl.ttf");
+    }
+
+    @font-face {
+        font-family: 'iconfont';
+        src: url('iconfont.ttf?t=1708579574327') format('truetype');
+    }
+
+    /* .center img {
+    max-width: 40%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+  } */
+
+    #pie {
+        width: 400px;
+        height: 400px;
+    }
+
+    .title {
+        color: #546ca4;
+        right: 10%;
+        position: absolute;
+        top: 38%;
+        font-size: 120px;
+        font-family: "Milane";
+        text-align: right;
+    }
+</style>
+
+<body>
+    <div class="BOX">
+        <div class="TOP">
+            <div>
+                <p class="Level_1_heading">Project</p>
+                <a href="design.html" class="Secondary_headings">Design</a>
+                <a href="safety.html" class="Secondary_headings">Safety</a>
+                <a href="implementation.html" class="Secondary_headings">Implementation</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Wet Lab</p>
+                <a href="engineering.html" class="Secondary_headings">Engineering</a>
+                <a href="construction.html" class="Secondary_headings">Construction</a>
+                <a href="protocol.html" class="Secondary_headings">Protocol</a>
+                <a href="Parts.html" class="Secondary_headings">Parts</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Dry Lab</p>
+                <a href="hardware.html" class="Secondary_headings">Hardware</a>
+                <a href="software.html" class="Secondary_headings">Software</a>
+                <a href="Model.html" class="Secondary_headings">Model</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">HP</p>
+                <a href="overview.html" class="Secondary_headings">Overview</a>
+                <a href="intergrated HP.html" class="Secondary_headings">Intergrated human practice</a>
+                <a href="education.html" class="Secondary_headings">Education</a>
+                <a href="entrepreneurship.html" class="Secondary_headings">Entrepreneurship</a>
+            </div>
+            <div>
+                <p class="Level_1_heading">Team</p>
+                <a href="member.html" class="Secondary_headings">Member</a>
+                <a href="attributions.html" class="Secondary_headings">Attributions</a>
+                <a href="contribution.html" class="Secondary_headings">Contribution</a>
+            </div>
+        </div>
+        <div class="top">
+            <img style="margin: 10px;margin-left: 5vw;" src="img/description/icon.png" id="iconclick">
+            <div class="caidan"></div>
+        </div>
+        <div class="banner" style="background-color: aliceblue;background-image: none;">
+            <h1 class="title">Contribution</h1>
+        </div>
+        <div class="box">
+            <div class="menu">
+                <div class="blank"></div>
+                <div class="nav">
+                    <a href="#tit_1" class="Level_1_heading scroll">Synthetic Biology Tools</a>
+                    <a href="#tit_2" class="Secondary_headings scroll">Warmth Suicidal Circuit</a>
+                    <a href="#tit_3" class="Secondary_headings scroll">Quorum Sensing Element</a>
+                    <a href="#tit_4" class="Secondary_headings scroll">Hydrogels characterization improvements</a>
+                    <a href="#tit_5" class="Secondary_headings scroll">A simulated gut test system</a>
+                    <a href="#tit_6" class="Level_1_heading scroll">Laboratory Skills</a>
+                    <a href="#tit_7" class="Secondary_headings scroll">ZJU Molecular Biology Laboratory Skills
+                        Manual</a>
+                    <a href="#tit_8" class="Secondary_headings scroll">Laboratory Safety：All Takes Two</a>
+                    <a href="#tit_9" class="Level_1_heading scroll">Education</a>
+                    <a href="#tit_10" class="Secondary_headings scroll">Pay Attention to Human Groups——Human
+                        Practice</a>
+                    <a href="#tit_11" class="Secondary_headings scroll">MRSAkiller——Intestinal Health Science Guide</a>
+                    <div class="animation"></div>
+                </div>
+            </div>
+            <div class="text" style="position: relative;">
+                <div class="cover" style="width: 100%; height: 70px; position: sticky; top: 0%;"></div>
+                <div>
+                    <p>
+                        During our iGEM journey, we have not only progressed and grown in completing our own projects,
+                        but are eager to share our experiences and achievements with the iGEM community and a wider
+                        audience. In this section, we will introduce our contributions to the iGEM community and the
+                        next-generation iGEM team, which can be roughly divided into three areas:
+                        <b> synthetic biology
+                            tools, laboratory skills, and education.</b>
+                    </p>
+                </div>
+                <div>
+                    <h1 id="tit_1" class="page">Synthetic Biology Tools</h1>
+                </div>
+                <div>
+                    <h2 id="tit_2" class="page">Warmth Suicidal Circuit</h2>
+                    <p>
+                        One of our outstanding contributions to synthetic biology tools is the construction of a
+                        temperature-sensing suicide pathway. The temperature-responsive synthetic pathway is a commonly
+                        used logic gate design in synthetic biology. In our project, it is used to control the fate of
+                        engineered bacteria that escape from the body. Traditional suicide pathways used for biosafety
+                        often only have a single logical response function, which not only risks triggering early during
+                        the production process, but also fails to achieve the purpose of artificially controlling the
+                        opening time. To this end, we designed and successfully constructed a system based on a biphasic
+                        steady-state switch, and characterized its characteristics through wet laboratory experiments
+                        and mathematical modeling.
+                    </p>
+                    <p>
+                        It is worth noting that the input signal of the suicide pathway we designed is a promoter that
+                        senses temperature changes and external inducer concentration, so different input signals can be
+                        obtained by simply replacing different promoters. This enhances its versatility and potential
+                        applications. Therefore, the biphasic stable switch suicide system developed by ZJU China 2024
+                        has broad application prospects in the field of synthetic biology.
+                    </p>
+                </div>
+                <div>
+                    <h2 id="tit_3" class="page">Quorum Sensing Element</h2>
+                    <p>
+                        In addition, our contribution to synthetic biology is to reconstruct the quorum sensing pathway.
+                        The quorum sensing (QS) pathway is a common tool in synthetic biology and is often used to
+                        control the density of engineered cells and regulate related metabolism. However, due to the
+                        high leakage rate of the QS system, its application has certain limitations. Therefore, we
+                        designed and constructed QS systems with low leakage rates and different cell density
+                        thresholds.
+                    </p>
+                    <p>
+                        Interestingly, we improved the QS system mainly by optimizing the sequence of Luxbox and the
+                        number of CRP binding sites. Different numbers of CRP sites and Lux-Box sequences will bring
+                        different leakage rates and cell density thresholds. This will allow everyone to use different
+                        variations to set the effect they want.
+                    </p>
+                </div>
+                <div>
+                    <h2 id="tit_4" class="page">Hydrogels characterization improvements</h2>
+                    <p>
+                        In our project, we constructed a hydrogel that can be secreted by microbes.This hydrogel protein
+                        was designed as a triplet —— coiled protein CsgA, tag 6 His for ligation and examination, and
+                        the cytokine TFF, expected to tether TFF to a coiled fiber matrix to construct self-coiled
+                        hydrogels.
+                    </p>
+                    <p>
+                        CsgA acts as a coiled protein, here as a scaffold for the hydrogel. And, TFF, as a small protein
+                        secreted by mucus-producing cells from the gastrointestinal tract and other mucosal surfaces,
+                        can be used to promote epithelial recovery and can also inhibit intestinal inflammation. This
+                        self-assembled hydrogel can repair the intestinal mucosal barrier while enhancing the adhesion
+                        and colonization of engineered bacteria against colonization by pathogenic bacteria.
+                    </p>
+                </div>
+                <div>
+                    <h2 id="tit_5" class="page">A simulated gut test system:</h2>
+                    <p>
+                        In order to test the actual effect of the developed engineered bacteria, it is necessary to
+                        design biological experiments to evaluate their antibacterial effects. Since biological
+                        experiments do not belong to the category of this competition, and considering the more time and
+                        money required by biological experiments, we designed a test system for in vitro testing of
+                        engineered bacteria.
+                    </p>
+                    <p>
+                        We used the stem cell induction method to construct a simulated human intestinal environment in
+                        which the simulated intestinal environment conducts biological experiments. In order to reduce
+                        the subsequent artificial experiments to evaluate the antibacterial effect, we designed an
+                        electronic measurement system to roughly measure the distribution of colonies in each part of
+                        the dish through the size of the colonies and the image of the fluorescently labeled
+                        antibacterial peptides, so as to roughly evaluate the antibacterial effect of the drug.
+                    </p>
+                </div>
+                <div>
+                    <h1 id="tit_6" class="page">Laboratory Skills</h1>
+                </div>
+                <div>
+                    <h2 id="tit_7" class="page">ZJU Molecular Biology Laboratory Skills Manual </h2>
+                    <p>
+                        Molecular biology experiments, such as plasmid construction and PCR, are an important part of
+                        synthetic biology projects. However, for beginners, following instructions in a biological kit
+                        can lead to errors and make it more difficult to understand the rationale and significance of
+                        each step. Therefore, based on our experimental experience in the iGEM laboratory, we compiled
+                        the "ZJU Molecular Biology Laboratory Skills Manual", which covers common molecular experimental
+                        techniques. Compared with other laboratory manuals, we provide more detailed and specific
+                        content in terms of detailed operations, and explain where necessary to ensure that even
+                        beginners can understand the principles of each step. We will work with the Zhejiang University
+                        Next Generation iGEM team to continue to revise and improve this manual.
+                    </p>
+                    <p>
+                        We have open sourced the English version of the "ZJU Molecular Biology Laboratory Skills
+                        Manual". We welcome your valuable suggestions and feedback on the "ZJU Molecular Biology
+                        Laboratory Skills Manual".
+                    </p>
+                </div>
+                <div>
+                    <h2 id="tit_8" class="page">Laboratory Safety：All Takes Two</h2>
+                    <p>
+                        Laboratory safety is also an important part of iGEM. Especially when conducting experiments,
+                        everyone must prioritize laboratory safety. We have established and refined laboratory safety
+                        protocols known as the “All Takes Two” system. This means that we will be working in pairs as we
+                        perform each experimental procedure. This system effectively avoids risks associated with
+                        personal negligence.
+                    </p>
+                    <p>
+                        To learn more about the All Takes Two system, visit Safety.
+                    </p>
+                </div>
+                <div>
+                    <h1 id="tit_9" class="page">Education</h1>
+                </div>
+                <div>
+                    <h2 id="tit_10" class="page">Pay Attention to Human Groups——Human Practice</h2>
+                    <p>
+                        The work of our team human practice revolves around the concept of "people-oriented". We have
+                        conducted extensive contacts with stakeholders and received a lot of feedback. One of our
+                        contributions to synthetic biology is to alleviate social inequalities and enrich the public's
+                        scientific knowledge through educational efforts.
+                    </p>
+                    <p>
+                        Super eco’s low cost and convenient use help it be widely accepted by people, which greatly
+                        helps our human practice work. On this basis, our human practice work covers rural and urban
+                        areas, focuses on the issue of inequalities in medical resources, builds bridges between
+                        projects and practice, and continuously improves our projects. At the same time, we also widely
+                        promote synthetic biology through educational work. knowledge about food poisoning and food
+                        poisoning, and called on the public to pay attention to food health; finally, we also
+                        accumulated original funds through entrepreneurship and put products into grassroots areas to
+                        alleviate inequality.
+                    </p>
+                </div>
+                <div>
+                    <h2 id="tit_11" class="page">MRSAkiller——Intestinal Health Science Guide</h2>
+                    <p>
+                        In order to increase public understanding of synthetic biology and gut health, we designed and
+                        drew illustrations for the "MRSAkiller—Gut Health Science Guide." This handbook conveys
+                        knowledge about synthetic biology and gut microbiota and health in simple, easy-to-understand
+                        language with illustrations. ZJUChina2024 works closely with high schools in Xihu District. We
+                        distributed these educational manuals to high school students and look forward to their positive
+                        feedback.
+                    </p>
+                    <p>
+                        We have open sourced the Chinese version of "MRSAkiller—Gut Health Science Manual" for
+                        educational purposes. We also welcome your valuable comments and suggestions on our documents.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="xiangshang"></div> -->
+        <!-- <div class="banner"></div> -->
+    </div>
+</body>
+
+</html>
+<script>
+    let items = document.querySelectorAll(".scroll");
+    let move = document.querySelector(".animation");
+    let last = 0;
+    let h1 = 43.5;
+    let h2 = 36;
+    let h3 = 32.4;
+    let h4 = 72;
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].onclick = function () {
+            //   items[last].style.backgroundColor = "rgba(126, 185, 187, 0.5)";
+            // items[last].style.color = "#546ca4"
+            // this.style.color = "white";
+            last = i;
+            if (i == 1) {
+                move.style.top = h1 + "px";
+            }
+            if (i > 1 && i <= 3) {
+                move.style.top = h1 + (i - 1) * h2 + "px";
+            }
+            if (i > 3 && i <= 4) {
+                move.style.top = h1 + 2 * h2 + h4 + "px";
+            }
+            if (i > 4 && i <= 5) {
+                move.style.top = h1 + 2 * h2 + h4 + h2 + "px";
+            }
+            if (i > 5 && i <= 6) {
+                move.style.top = 2 * h1 + 2 * h2 + h4 + h2 + "px";
+            }
+            if (i > 6 && i <= 8) {
+                move.style.top = 2 * h1 + 2 * h2 + h4 + h2 + (i - 6) * h4 + "px";
+            }
+            if (i > 8 && i <= 9) {
+                move.style.top = 3 * h1 + 2 * h2 + h4 + h2 + 2 * h4 + "px";
+            }
+            if (i > 9) {
+                move.style.top = 3 * h1 + 2 * h2 + 2 * h4 + h2 + 2 * h4 + "px";
+            }
+            move.style.height = 65 + "px";
+        };
+    }
+    move.addEventListener("transitionend", function () {
+        move.style.height = "40px";
+    });
+
+
+    let lis = document.querySelectorAll('.page');
+    let cover = document.querySelector('.cover');
+    let lastPrintedIndex = null;
+
+    window.addEventListener('scroll', function () {
+        let coverRect = cover.getBoundingClientRect();
+        for (let i = 0; i < lis.length; i++) {
+            let pageRect = lis[i].getBoundingClientRect();
+
+            if (pageRect.bottom >= coverRect.top && pageRect.top <= coverRect.bottom && i !== lastPrintedIndex) {
+                if (i == 1) {
+                    move.style.top = h1 + "px";
+                }
+                if (i > 1 && i <= 3) {
+                    move.style.top = h1 + (i - 1) * h2 + "px";
+                }
+                if (i > 3 && i <= 4) {
+                    move.style.top = h1 + 2 * h2 + h4 + "px";
+                }
+                if (i > 4 && i <= 5) {
+                    move.style.top = h1 + 2 * h2 + h4 + h2 + "px";
+                }
+                if (i > 5 && i <= 6) {
+                    move.style.top = 2 * h1 + 2 * h2 + h4 + h2 + "px";
+                }
+                if (i > 6 && i <= 8) {
+                    move.style.top = 2 * h1 + 2 * h2 + h4 + h2 + (i - 6) * h4 + "px";
+                }
+                if (i > 8 && i <= 9) {
+                    move.style.top = 3 * h1 + 2 * h2 + h4 + h2 + 2 * h4 + "px";
+                }
+                if (i > 9) {
+                    move.style.top = 3 * h1 + 2 * h2 + 2 * h4 + h2 + 2 * h4 + "px";
+                }
+                move.style.height = 65 + "px";
+                move.addEventListener("transitionend", function () {
+                    move.style.height = "40px";
+                });
+                // items[i].style.color = "white";
+                // if (i != 0) {
+                //   items[i - 1].style.color = "#546ca4";
+                //   items[i + 1].style.color = "#546ca4";
+                // }
+                // if (i == 0) {
+                //   items[i + 1].style.color = "#546ca4";
+                // }
+            }
+        }
+    });
+
+    $(function () {
+        $('.caidan').click(function () {
+            $('.TOP').toggleClass('TOP-active')
+            $('.caidan').toggleClass('caidan-active')
+        })
+    })
+
+    $("#iconclick").click(function () {
+        location.href = 'index.html'
+    })
+
+    // 饼状图
+    // 基于准备好的dom，初始化echarts实例
+    var pie = echarts.init(document.getElementById('pie'));
+    // 指定图表的配置项和数据
+    pieOption = {
+        // 标题
+        // title: {
+        //   text: 'echarts实现饼状图'
+        // },
+        // 图例
+        tooltip: {
+            show: true,
+            trigger: "item",
+            backgroundColor: "#adbef9",
+            // {a}（系列名称），{b}（数据项名称），{c}（数值）, {d}（百分比）
+            formatter: "{a}：{b}<br/>{d}%"
+        },
+        // 不同区域的颜色
+        color: ['#3e87ff', '#65b2f3', '#b9cfec'],
+        series: [
+            {
+                name: 'Causative Factors',
+                type: 'pie',
+                // 数组的第一项是内半径，第二项是外半径；可以设置不同的内外半径显示成圆环图
+                radius: '50%',
+                // 饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标；设置成百分比时第一项是相对于容器宽度，第二项是相对于容器高度
+                center: ['50%', '50%'],
+                data: [
+                    { value: 107, name: 'bacterial' },
+                    { value: 52, name: 'plant origin' },
+                    { value: 41, name: 'fungal origin' },
+                    { value: 24, name: 'chemical', itemStyle: { color: '#a4b8ff' } },
+                    { value: 4, name: 'animal origin', itemStyle: { color: '#889ff3' } },
+                    { value: 2, name: 'viral', itemStyle: { color: '#c5cff2' } },
+                    { value: 61, name: 'unexplained', itemStyle: { color: '#3c75d1' } },
+                ],
+                itemStyle: {
+                    // 显示图例
+                    normal: {
+                        label: {
+                            show: true
+                        },
+                        labelLine: {
+                            show: true
+                        }
+                    },
+                    emphasis: {
+                        // 图形阴影的模糊大小
+                        shadowBlur: 10,
+                        // 阴影水平方向上的偏移距离
+                        shadowOffsetX: 0,
+                        // 阴影颜色
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    pie.setOption(pieOption);
+
+</script>
